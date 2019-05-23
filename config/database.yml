@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Gitcom_development
+
+test:
+  <<: *default
+  database: Gitcom_test
+
+production:
+  <<: *default
+  database: Gitcom_production
+  username: Gitcom
+  password: <%= ENV['GITCOM_DATABASE_PASSWORD'] %>
