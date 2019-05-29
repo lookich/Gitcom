@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <h1><%= t('gitcommits.index') %></h1>
+    <tr>
+      <th scope="col-">#</th>
+      <th scope="col-6">Commit message</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Repository</th>
+      <th scope="col">Author email</th>
+      <th scope="col">Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gitcommit.each do |gitcommit|%>
+      <tr>
+        <td><%= check_box_tag 'ids[]', gitcommit.id %></td>
+        <td><%= gitcommit.commit_message %></td>
+        <td><%= gitcommit.owner %></td>
+        <td><%= gitcommit.repo %></td>
+        <td><%= gitcommit.author_email %></td>
+        <td><%= link_to "Download", "#{gitcommit.commit_url}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= submit_tag 'Delete selected', method: 'delete', id: 'delete', class: 'btn btn-primary', remote:  true %>

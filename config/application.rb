@@ -9,8 +9,8 @@ require "active_storage/engine"
 require "action_controller/railtie"
 # require "action_mailer/railtie"
 require "action_view/railtie"
-# require "action_cable/engine"
-# require "sprockets/railtie"
+require "action_cable/engine"
+require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -21,7 +21,7 @@ module Gitcom
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-
+    config.middleware.use ActionDispatch::Flash
     config.api_only = true
   end
 end

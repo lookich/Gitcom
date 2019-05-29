@@ -1,0 +1,14 @@
+<%= form_for Gitcommit.new, url: {action: 'create'}, remote:  true do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <p>
+    <%= f.submit name="Download commit", class: 'btn btn-primary' %><br>
+  </p>
+<% end %>
+
+<%= form_with(url: {action: :remove_selected}, method: 'get', id: 'gitcommits') do |f|%>
+  <div id='commits'>
+    <%= render partial: 'gitcommit' %>
+  </div>
+<% end %>
+
+<%= paginate @gitcommit %>
