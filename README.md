@@ -1,24 +1,16 @@
-# README
+<a href='https://coveralls.io/github/lookich/Gitcom?branch=master'><img src='https://coveralls.io/repos/github/lookich/Gitcom/badge.svg?branch=master' alt='Coverage Status' /></a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* ## This application allows you to download all commits from Github of a particular author.
 
-Things you may want to cover:
+  To do this, simply specify the author's name and repository.
 
-* Ruby version
+  It uses PostgreScL 10.7 database.
 
-* System dependencies
+  For setups: copy the repository to yourself.
+  And enter the commands:
 
-* Configuration
+  bundle install
 
-* Database creation
+  rails db:create
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  rails db:migrate
