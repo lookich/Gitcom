@@ -2,7 +2,7 @@ language: ruby
 rvm:
 - 2.5.1
 before_script:
-- bundle exec rake db:create --all
+- bundle exec rake db:create
 - bundle exec rake db:migrate
 script:
 - bundle exec rake ci:tests
@@ -10,3 +10,6 @@ services:
 - postgresql
 notifications:
   email: false
+branches:
+  only:
+    - master
