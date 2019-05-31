@@ -2,7 +2,11 @@
 
 * ## This application allows you to download all commits from Github of a particular author.
 
-  To do this, simply specify the author's name and repository.
+  To do this, simply specify the author's name, repository and email.
+  Like this:
+    Owner: thoughtbot
+    Repo: guides
+    Author email: tyson@tysongach.com
 
   It uses PostgreScL 10.7 database.
 

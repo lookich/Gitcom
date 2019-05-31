@@ -18,20 +18,26 @@ class Api::V1::GitcommitsController < ApplicationController
 
   def create
     if params[:gitcommit]
-      Gitcommit.destroy_all
+      @gitcommit = Gitcommit.all
+      if  @gitcommit.present?
+        @gitcommit.destroy_all
+      end
       get_json
       @gitcommit = Gitcommit.new(gitcommit_params)
       @hash.each do |item|
         get_url
-        Gitcommit.create(
+        if item['commit']['author']['email'] = params[:gitcommit][:author_email]
+          Gitcommit.create(
           owner: item['commit']['author']['name'],
           repo: params[:gitcommit][:repo],
           author_email: item['commit']['author']['email'],
           commit_url: @gitcommit.commit_url,
           commit_message: item['commit']['message'])
+          p item['commit']['author']['email']
+        end
       end
       @gitcommit.save
-      Gitcommit.last.destroy
+      #Gitcommit.last.destroy
       redirect_to api_v1_gitcommits_path(@gitcommit)
     elsif params[:commit] = 'Delete selected'
       remove_selected
