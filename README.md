@@ -11,7 +11,8 @@
     
     Author email: tyson@tysongach.com
 
-  It uses PostgreScL 10.7 database.
+  It uses PostgreSQL 10.7 database.
+  Ruby 2.5.1
 
   For setups: copy the repository to yourself.
   And enter the commands:
