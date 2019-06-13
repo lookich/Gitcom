@@ -33,11 +33,9 @@ class Api::V1::GitcommitsController < ApplicationController
           author_email: item['commit']['author']['email'],
           commit_url: @gitcommit.commit_url,
           commit_message: item['commit']['message'])
-          p item['commit']['author']['email']
         end
       end
       @gitcommit.save
-      #Gitcommit.last.destroy
       redirect_to api_v1_gitcommits_path(@gitcommit)
     elsif params[:commit] = 'Delete selected'
       remove_selected
